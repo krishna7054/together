@@ -1,0 +1,35 @@
+.sideNav {
+    height: 150%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(14, 2, 44);
+    overflow-x: hidden;
+    padding-top: 60px;
+}
+
+.sideNav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sideNav a:hover {
+    color: #16c016;
+}
+
+/* Show the navigation bar by default */
+/* .sideNav {
+    display: block;
+} */
+
+@media (max-width: 400px){
+    .sideNav{
+        display:none;
+    }
+}

@@ -1,0 +1,36 @@
+/* .mainCard{
+    width: 10vw;
+} */
+.postDetails{
+    display: inline;
+    
+}
+.threeDots{
+    float: right;
+
+}
+
+
+
+.mid img{
+    position: relative;
+    width: 20vw;
+    height: 50vh;
+}
+
+.bottom .icons{
+    display: inlines;
+    size:"50px";
+}
+
+
+.bookmark{
+float: right;
+}
+
+.iconstyle{
+    color:brown;
+}
+/* .icons{
+    width: 200px;
+} */

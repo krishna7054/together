@@ -1,0 +1,35 @@
+/* .search{
+    margin-top: 300px;
+    text-align: center;
+} */
+.searchBox{
+    /* display: block;
+     */
+    
+    position:fixed;
+    top:0;
+    left: 0;
+    z-index: 1;
+    padding: 10px;
+    /* text-align: center; */
+    width: 70vw;
+    
+}
+.post{
+    display: block;
+    /* position:fixed; */
+    position: relative;
+    padding-top:10vh ;
+    /* z-index: -1; */
+    /* margin-left: 10vw;
+    padding-left: 0vw; */
+    width: 30vw;
+
+        /* width: 70%; */
+            /* text-align: center; */
+            margin-left: 33vw;
+            /* position: fixed; */
+}
+.home > .post {
+    margin-left: 20vw;
+}
