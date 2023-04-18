@@ -3,6 +3,10 @@
   padding:0;
   text-decoration: none;
 }
+.pt6{
+  padding-top: 3rem;
+  position: fixed;
+}
 .container{
   display:flex;
 }
@@ -80,4 +84,18 @@ justify-content: center;
   padding-top: 10px;
   padding-bottom: 10px;
   border-style: hidden;
+}
+.cursorpointer1 {
+  font-size: 40px;
+  color: #fff;
+  margin-bottom: 20px;
+  font-family: 'Brush Script MT', cursive;
+  /* padding-left: 35px; */
+  margin-top: -20px;
+  padding-bottom:20px;
+  position: fixed;
+  padding-inline: 0.8em;
+  padding-block: 0.9em;
+  padding-top: 0px;
+    z-index: 1;
 }

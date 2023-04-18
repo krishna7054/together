@@ -33,8 +33,8 @@
     background-color: transparent;
     width: 100%;
     height: 100%;
-    padding-inline: 0.5em;
-    padding-block: 0.7em;
+    /* padding-inline: 0.5em; */
+    /* padding-block: 0.7em; */
     border: none;
   }
   /* styling of animated border */
@@ -65,20 +65,28 @@
   }
   /* styling of close button */
 
-  button[type="submit"] {
+  /* button[type="submit"] {
     padding: 0.5em 1em;
-   /* background-color: #a47469; */
-   /* margin-left: 87%; */
     color: rgb(2, 3, 5);
     border: none;
     font-size: large;
-    /* border-radius: 5px; */
     cursor: pointer;
-  }
+  } */
 
-  button[type="submit"]:hover {
+  /* button[type="submit"]:hover {
     color: #1212e7;
-  }
+  } */
+    .button {
+      padding: 0.5em 1em;
+      color: rgb(2, 3, 5);
+      border: none;
+      font-size: large;
+      cursor: pointer;
+      margin-right: 50px;
+    }
+    .reset:hover{
+      color:#1212e7;
+    }
   /* close button shown when typing */
   input:not(:placeholder-shown) ~ .reset {
     opacity: 1;
@@ -87,7 +95,8 @@
  .search{
   width: 70%;
   text-align: center;
-  margin-left: 10vw;
-  position: fixed;
+      position: fixed;
+  /* margin-left: 10vw;
+  position: fixed; */
  }
  

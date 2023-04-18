@@ -16,14 +16,49 @@ import classes from './Post.module.css'
 // } from "react-icons/fa";
 // import {  } from 'react-icons/fa';
 
-const Post = () => {
+const Post = ({ userName, imageURL, title, des, likes, id }) => {
+
+    const api_base = 'http://localhost:3001';
 
     const [like, setLike] = useState(false);
+    const [newLikesCount, setLikes] = useState(likes)
     const [bookmark, setBookmark] = useState(false);
 
-    const likeHandler = () => {
+    const likeHandler = async () => {
         setLike(!like);
+        // Update likes count based on current like state
+        const newLikesCount = like ? likes : likes + 1;
+        setLikes(newLikesCount);
+
+        const data = {
+            uName: userName,
+            imgURL: imageURL
+        };
+        try {
+            console.log("uname:", userName, "imgURl:", imageURL);
+            const response = await fetch("http://localhost:3001/user/comment/new", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json" // Set the Content-Type header to "application/json"
+                },
+                body: JSON.stringify(data) // Convert data to JSON string
+            });
+            if (response.ok) {
+                console.log('liked successfully');
+                // Handle successful response here
+            } else {
+                // Handle non-OK response here
+                console.error(response);
+            }
+        } catch (error) {
+            // Handle fetch error here
+            console.error(error);
+        }
     }
+
+
+
+
     const bookmarkHandler = () => {
         setBookmark(!bookmark);
     }
@@ -35,12 +70,21 @@ const Post = () => {
         fontSize: hovered ? '1.5em' : '1em',
     };
 
-    const handleMouseEnter = () => {
+    const handleMouseEnter = async (imageURL) => {
         setHovered(true)
+        console.log(imageURL);
+
+
+
+
     }
+
 
     const handleMouseLeave = () => {
         setHovered(false);
+    }
+    const imageDes = (imageURL) => {
+
     }
 
 
@@ -49,33 +93,48 @@ const Post = () => {
         <Card className={classes.mainCard}>
             <section className={classes.top}>
                 <div className={classes.postDetails}>
-                    < CgProfile size={'25px'} /> <span>Arrushi </span><span>  2d</span><BsThreeDots size={'25px'} className={classes.threeDots} />
+                    < CgProfile size={'25px'} /> <span>{userName} </span><span>  2d</span><BsThreeDots size={'25px'} className={classes.threeDots} />
+                    {console.log()};
                 </div>
             </section>
 
             <section className={classes.mid}>
                 <div>
-                    <img src="https://cdn.wallpapersafari.com/16/69/rcj6Cz.jpg" alt='' />
+                    <img src={imageURL} alt='' />
                 </div>
             </section>
 
-            <section className='bottom'>
+            <section className={classes.bottom}>
                 <div>
                     <div >
-                        <section className='icons' >
+                        <section className={classes.icons} >
                             {/* INTERACTIVE ICONS */}
-                            <span className={classes.like}> < AiFillLike size={'25px'} onMouseEnter={handleMouseEnter}
-                                onMouseLeave={handleMouseLeave} onClick={likeHandler} style={{ color: like ? "lightBlue" : "black" }} />     </span>
 
-                            <span><FaRegComment size={'25px'} />     </span><span><FaShare size={'25px'} />    </span><span className={classes.bookmark}>< FaRegBookmark onClick={bookmarkHandler} style={{ color: bookmark ? "lightPink" : "black" }} size={'25px'} /></span>
+                            <div className={classes.lft}>
+                                <span className={classes.like}> < AiFillLike size={'25px'} onMouseEnter={() => (handleMouseEnter())}
+                                    onMouseLeave={handleMouseLeave} onClick={likeHandler}
+                                    style={{ color: like ? "lightBlue" : "black" }} />     </span>
+
+                                {/* <span><FaRegComment size={'25px'} />     </span><span><FaShare size={'25px'} />    </span> */}
+                                <button onClick={() => (imageDes(imageURL))}>Try AI Image Describer </button>
+                            </div>
+
+                            <div className={classes.rt}>
+                                <span className={classes.bookmark}>< FaRegBookmark onClick={bookmarkHandler} style={{ color: bookmark ? "lightPink" : "black" }} size={'25px'} /></span>
+                            </div>
+
+
                         </section>
 
                         {/* NO OF LIKES */}
-                        <section><span>99 </span> likes</section>
+                        <section><span>{newLikesCount} </span> likes </section>
 
                         { }
-                        <section><span >@Atrayee</span> Trying to ragain curiosity</section>
+                        <section><span>@</span> {title}</section>
+                        <section><span > {des}</span></section>
+
                         <section>
+
                             <a href="#">View all comments</a>
                         </section>
 

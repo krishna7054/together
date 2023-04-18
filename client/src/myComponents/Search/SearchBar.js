@@ -19,8 +19,8 @@ const SearchBar = () => {
 
             <form onSubmit={handleSubmit} className={classes.form}>
 
-                <input className={classes.input} placeholder="Search Products & Services..." value={searchTerm} type="text" onChange={handleSearch} />
-                <button button className={classes.reset} type="submit">Search</button>
+                <input className={classes.input} placeholder="Search Users..." value={searchTerm} type="text" onChange={handleSearch} />
+                <button className={classes.reset} type="submit">Search</button>
             </form>
         </div>
     );

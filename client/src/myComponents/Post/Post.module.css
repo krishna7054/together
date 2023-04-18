@@ -14,18 +14,25 @@
 
 .mid img{
     position: relative;
-    width: 20vw;
-    height: 50vh;
+    display:block;
+    width: 33vw;
+    height: 75vh;
+    /* z-index: -1; */
 }
 
-.bottom .icons{
-    display: inlines;
+.bottom .icons .lft{
+    display:flex;
+      justify-content: space-around;
+
+    margin-right: 20px;
     size:"50px";
 }
 
 
 .bookmark{
-float: right;
+    position: relative;
+    /* margin-right: 323px; */
+    float: right;
 }
 
 .iconstyle{

@@ -65,81 +65,71 @@ const Sidebar = ({ children }) => {
             name: "Explore",
             icon: <MdOutlineExplore />
         },
-        {
-            path: "/message",
-            name: "Message",
-            icon: <SiGooglemessages />
-        },
-        {
-            path: "/myorders",
-            name: "My Orders",
-            icon: <CgProfile />
-        },
+        // {
+        //     path: "/message",
+        //     name: "Message",
+        //     icon: <SiGooglemessages />
+        // },
+        // {
+        //     path: "/myorders",
+        //     name: "My Orders",
+        //     icon: <CgProfile />
+        // },
 
         {
             path: "/profile",
             name: "Profile",
             icon: <CgProfile />
         },
-        {
-            path: "/signup",
-            name: "Become a Seller",
-            icon: <RiSettings4Fill />
-        }
+        // {
+        //     path: "/signup",
+        //     name: "Become a Seller",
+        //     icon: <RiSettings4Fill />
+        // }
     ]
     function handleClick() {
         setIsActive(!isActive);
     }
 
+
     return (
         <div className="flex">
             <div className={` ${open ? "w-72" : "w-20 "}  bg-dark-purple  p-5  pt-8 relative duration-300 `}>
 
-                <img src="./assets/Calendar.png" className={` cursor-pointer left-4 top-1.5 w-7 ml-2 fixed border-dark-purple border-2 rounded-full  ${!open && "rotate-180"}`} onClick={() => setOpen(!open)} alt="sds" />
-
-                <div className={`flex gap-x-4 items-center`}>
+                <div className={`flex gap-x-8  mb-6 items-center fixed `}>
                     <NavLink to={"./home"}  >
-                        <img src="https://i.ibb.co/fC5HcdW/t-logo.png" alt='icon' width={"100px"} className={`cursor-pointer duration-500 ${open && "rotate-[360deg]"}`} />
+                        <img src="https://i.ibb.co/fC5HcdW/t-logo.png" alt='icon' width={"100px"} className={`cursorpointer duration-500 ${open && "rotate-[360deg]"}`} />
                     </NavLink>
-                    <h1 className={`text-white origin-left font-medium text-xl duration-200 ${!open && "scale-0"}`}> Welcome</h1>
                 </div>
 
+
                 <ul className={`pt-6 fixed`}>
-
-
                     {menuItem.map((item, index) => (
-                        <NavLink to={item.path} key={index} >
-                            <li
-                                onClick={handleClick} key={index}
-                                className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 
-                            ${item.gap ? "mt-9" : "mt-2"} ${index === 0 && "bg-light-white"} bg-blue-500 hover:bg-blue-700 ${isActive ? 'active:bg-blue-800' : ''} text-white font-bold py-2 px-4 rounded`}>
-                                {item.icon}
-                                <span className={`${!open && "hidden"} origin-left duration-200`}>{item.name}</span>
+                        <div key={index}>
+                            {
+                                <NavLink to={item.path}>
+                                    <li
+                                        onClick={handleClick}
+                                        className={`flex rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 
+                        ${item.gap ? "mt-12" : "mt-2"} ${index === 0 && "bg-light-white"} bg-blue-500 hover:bg-blue-700 ${isActive ? 'active:bg-blue-800' : ''} text-white font-bold py-2 px-4 rounded`}
+                                    >
+                                        {item.icon}
+                                        <span className={`${!open && "hidden"} origin-left duration-200`}>{item.name}</span>
+                                    </li>
+                                </NavLink>
+                            }
+                        </div>
+                    ))}
 
-                            </li>
-                            {console.log(isActive)}
-
-                            {/* <div className={classes.icon}>{item.icon}</div>
-                            <div style={{ display: (window.innerWidth < 1150) ? "none" : "block" }} className={classes.link_text}>{item.name}</div> */}
-                        </NavLink>))}
 
 
-                    {/* {Menus.map((Menu, index) => (
-                        <li key={index}
-                            className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 
-                            ${Menu.gap ? "mt-9" : "mt-2"} ${index === 0 && "bg-light-white"} `}>
-
-                            <img src={`./assets/${Menu.src}.png`} />
-
-                            <span className={`${!open && "hidden"} origin-left duration-200`}> {Menu.title} </span>
-                        </li>
-                    ))} */}
                 </ul>
             </div>
 
             <div className="h-screen flex-1 p-7">
-                <h1 className="text-2xl font-semibold ">Home Page</h1>
+                {/* <h1 className="text-2xl font-semibold ">Home Page</h1> */}
             </div>
+
             <main>{children}</main>
         </div>
     );
